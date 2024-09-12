@@ -1,0 +1,200 @@
+@import "compass/css3";
+
+/*vars*/
+/* $fg:#e91e63; */
+/* $bg:#8bc34a; */
+/* $pi:3.14; */
+
+/*config*/
+/* $menu-items:6+1; */
+/* $open-distance:105px; */
+/* $opening-angle:$pi*2; */
+
+body {
+  background: #8bc34a;
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.menu-open {
+  display: none;
+}
+
+.menu-item {
+  background: #e91e63;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  position: absolute;
+  top: 20px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+
+  &:hover {
+    background: white;
+    color: #e91e63;
+  }
+
+  &:nth-child(3) {
+    transition-duration: 180ms;
+  }
+
+  &:nth-child(4) {
+    transition-duration: 280ms;
+  }
+
+  &:nth-child(5) {
+    transition-duration: 380ms;
+  }
+
+  &:nth-child(6) {
+    transition-duration: 480ms;
+  }
+
+  &:nth-child(7) {
+    transition-duration: 580ms;
+  }
+
+  &:nth-child(8) {
+    transition-duration: 680ms;
+  }
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5px;
+  margin-top: -1.5px;
+  transition: transform 200ms;
+}
+
+/* $hamburger-spacing:8px; */
+.hamburger-1 {
+  transform: translate3d(0, -8px, 0);
+}
+
+.hamburger-2 {
+  transform: translate3d(0, 0, 0);
+}
+
+.hamburger-3 {
+  transform: translate3d(0, 8px, 0);
+}
+
+.menu-open:checked + .menu-open-button {
+  .hamburger-1 {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+
+  .hamburger-2 {
+    transform: translate3d(0, 0, 0) scale(0.1, 1);
+  }
+
+  .hamburger-3 {
+    transform: translate3d(0, 0, 0) rotate(-45deg);
+  }
+}
+
+.menu {
+  filter: url('#goo');
+  position: absolute;
+  left: 50%;
+  margin-left: -190px;
+  padding-top: 20px;
+  padding-left: 190px;
+  width: 380px;
+  height: 250px;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+  /* debug */
+  /* background:rgba(255,0,0,0.2); */
+}
+
+.menu-open-button {
+  background: #e91e63;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  position: absolute;
+  top: 20px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  transform: translate3d(0, 0, 0) scale(1.1, 1.1);
+  cursor: pointer;
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration: 400ms;
+
+  &:hover {
+    transform: translate3d(0, 0, 0) scale(1.2, 1.2);
+  }
+}
+
+.menu-open:checked + .menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  transform: translate3d(0, 0, 0) scale(0.8, 0.8);
+}
+
+.menu-open:checked ~ .menu-item {
+  transition-timing-function: cubic-bezier(0.935, 0.000, 0.340, 1.330);
+
+  &:nth-child(3) {
+    transition-duration: 180ms;
+    transform: translate3d(105px, 0, 0);
+  }
+
+  &:nth-child(4) {
+    transition-duration: 280ms;
+    transform: translate3d(78.75px, 52.5px, 0);
+  }
+
+  &:nth-child(5) {
+    transition-duration: 380ms;
+    transform: translate3d(26.25px, 105px, 0);
+  }
+
+  &:nth-child(6) {
+    transition-duration: 480ms;
+    transform: translate3d(-26.25px, 105px, 0);
+  }
+
+  &:nth-child(7) {
+    transition-duration: 580ms;
+    transform: translate3d(-78.75px, 52.5px, 0);
+  }
+
+  &:nth-child(8) {
+    transition-duration: 680ms;
+    transform: translate3d(-105px, 0, 0);
+  }
+}
